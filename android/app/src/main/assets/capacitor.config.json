@@ -1,0 +1,14 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "delivery-app-client",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {},
+  "linuxAndroidStudioPath": "/home/mf17/android-studio/bin/studio.sh"
+}
