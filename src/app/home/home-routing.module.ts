@@ -4,35 +4,20 @@ import { HomePage } from './home.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomePage,
     children: [
       {
         path: 'resturants',
-        children: [
-          {
-            path: '',
-            loadChildren: '../resturants/resturants.module#ResturantsPageModule'
-          }
-        ]
+        loadChildren: () => import('../resturants/resturants.module').then(m => m.ResturantsPageModule)
       },
       {
         path: 'cart',
-        children: [
-          {
-            path: '',
-            loadChildren: '../cart/cart.module#CartPageModule'
-          }
-        ]
+        loadChildren: () => import('../cart/cart.module').then(m => m.CartPageModule)
       },
       {
         path: 'account',
-        children: [
-          {
-            path: '',
-            loadChildren: '../account/account.module#AccountPageModule'
-          }
-        ]
+        loadChildren: () => import('../account/account.module').then(m => m.AccountPageModule)
       },
       {
         path: '',
@@ -43,8 +28,8 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/home/home/resturants',
-    pathMatch: 'full',
+    redirectTo: '/home/resturants',
+    pathMatch: 'full'
   }
 ];
 
