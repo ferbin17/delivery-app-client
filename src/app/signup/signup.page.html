@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Signup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="signupForm" (submit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div class="error-message" *ngIf="signupForm.get('email').hasError(validation.type) && (signupForm.get('email').dirty || signupForm.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+  
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="error-message" *ngIf="signupForm.get('password').hasError(validation.type) && (signupForm.get('password').dirty || signupForm.get('password').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    
+    <ion-item>
+      <ion-label position="floating">Confirm Password</ion-label>
+      <ion-input type="password" formControlName="confirm_password"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.confirm_password">
+        <div class="error-message" *ngIf="signupForm.get('confirm_password').hasError(validation.type) && (signupForm.get('confirm_password').dirty || signupForm.get('confirm_password').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+  
+    <ion-button type="submit" expand="block">Sign up</ion-button>
+  </form>
+  <ion-button [routerLink]="['']" shape="round">Back</ion-button>
+</ion-content>

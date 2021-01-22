@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
     path: 'resturants',
     loadChildren: () => import('./resturants/resturants.module').then( m => m.ResturantsPageModule)
   },
@@ -17,6 +21,18 @@ const routes: Routes = [
   {
     path: 'account',
     loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'index',
+    loadChildren: () => import('./index/index.module').then( m => m.IndexPageModule)
   },
 ];
 
